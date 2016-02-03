@@ -4,8 +4,13 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="size_string_title">24sp</dimen>
+    <dimen name="size_string_title_content">20sp</dimen>
     <dimen name="size_icon">24dp</dimen>
     <dimen name="margin_title1">10dp</dimen>
     <dimen name="margin_title2">40dp</dimen>
+    <dimen name="margin_menu_left">20dp</dimen>
+    <dimen name="margin_menu_rigth">20dp</dimen>
+    <dimen name="margin_icon">10dp</dimen>
+    <dimen name="heigth_header_title">50dp</dimen>
 
 </resources>

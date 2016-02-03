@@ -1,19 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/back_splash"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.tomas.kreativeco.Main"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_height="@dimen/heigth_header_title"
+        android:layout_width="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="@string/title_content"
+            android:textColor="@color/text_title"
+            android:textStyle="bold"
+            android:textSize="@dimen/size_string_title_content"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/barra_backmakeaplan"
+        android:layout_height="@dimen/heigth_header_title"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+            <ImageButton
+                android:src="@drawable/selector_imagebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_icon"
+                android:layout_gravity="center"
+                />
+            <ImageButton
+                android:background="@drawable/iconoafter_makeaplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_icon"
+                android:layout_marginLeft="@dimen/margin_icon"
+                android:layout_gravity="center"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+                />
+            <ImageButton
+                android:background="@drawable/iconobar_makeaplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_icon"
+                android:layout_marginLeft="@dimen/margin_icon"
+                android:layout_gravity="center"
+
+                />
+            <ImageButton
+                android:background="@drawable/iconoparados_makeaplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_icon"
+                android:layout_marginLeft="@dimen/margin_icon"
+                android:layout_gravity="center"
+
+                />
+            <ImageButton
+                android:background="@drawable/iconoaccion_makeaplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_icon"
+                android:layout_marginLeft="@dimen/margin_icon"
+                android:layout_gravity="center"
+
+                />
+            <ImageButton
+                android:background="@drawable/iconohotel_makeaplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_icon"
+                android:layout_gravity="center"
+                />
+    </LinearLayout>
+</LinearLayout>
