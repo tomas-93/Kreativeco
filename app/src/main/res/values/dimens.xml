@@ -11,5 +11,8 @@
     <dimen name="margin_menu_rigth">20dp</dimen>
     <dimen name="margin_icon">10dp</dimen>
     <dimen name="heigth_header_title">50dp</dimen>
+    <dimen name="heigth_header_card">150dp</dimen>
+    <dimen name="width_image_card">150dp</dimen>
+    <dimen name="width_layout">150dp</dimen>
 
 </resources>
