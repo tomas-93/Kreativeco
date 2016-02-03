@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back_splash"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.tomas.kreativeco.Main"
+    tools:context=".controller_view.Main"
     tools:showIn="@layout/activity_main"
     android:orientation="vertical">
     <LinearLayout
@@ -15,10 +15,11 @@
         android:layout_height="@dimen/heigth_header_title"
         android:layout_width="match_parent">
         <TextView
+            android:id="@+id/titleXML"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:text="@string/title_content"
+            android:text="@string/title_content_1"
             android:textColor="@color/text_title"
             android:textStyle="bold"
             android:textSize="@dimen/size_string_title_content"
@@ -30,15 +31,18 @@
         android:layout_height="@dimen/heigth_header_title"
         android:layout_width="match_parent"
         android:gravity="center_horizontal">
-            <ImageButton
-                android:src="@drawable/selector_imagebutton"
+            <ImageView
+                android:id="@+id/restaurantsXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_icon"
                 android:layout_gravity="center"
+
                 />
-            <ImageButton
-                android:background="@drawable/iconoafter_makeaplan"
+            <ImageView
+                android:id="@+id/aftersXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_icon"
@@ -46,8 +50,9 @@
                 android:layout_gravity="center"
 
                 />
-            <ImageButton
-                android:background="@drawable/iconobar_makeaplan"
+            <ImageView
+                android:id="@+id/barsXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_icon"
@@ -55,8 +60,9 @@
                 android:layout_gravity="center"
 
                 />
-            <ImageButton
-                android:background="@drawable/iconoparados_makeaplan"
+            <ImageView
+                android:id="@+id/finoXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_icon"
@@ -64,21 +70,31 @@
                 android:layout_gravity="center"
 
                 />
-            <ImageButton
-                android:background="@drawable/iconoaccion_makeaplan"
+            <ImageView
+                android:id="@+id/actionXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/margin_icon"
                 android:layout_marginLeft="@dimen/margin_icon"
                 android:layout_gravity="center"
-
                 />
-            <ImageButton
-                android:background="@drawable/iconohotel_makeaplan"
+            <ImageView
+                android:id="@+id/hotelsXML"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_icon"
                 android:layout_gravity="center"
                 />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:scrollbars="vertical"
+            android:id="@+id/list_card_view"/>
     </LinearLayout>
 </LinearLayout>

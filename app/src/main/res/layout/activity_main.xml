@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.tomas.kreativeco.Main">
+    tools:context=".controller_view.Main">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,18 +16,22 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/header">
+            android:background="@drawable/header"
+            android:gravity="center_horizontal">
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/icono_hamburguesa"
-                android:layout_marginEnd="@dimen/margin_title2"
+                android:layout_gravity="center|left"
+
                 />
             <ImageButton
                 android:layout_width="@dimen/size_icon"
                 android:layout_height="@dimen/size_icon"
                 android:background="@drawable/icono_makeaplan"
+                android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/margin_title1"
+
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -36,6 +40,8 @@
                 android:textColor="@color/text_title"
                 android:textStyle="bold"
                 android:textSize="@dimen/size_string_title"
+                android:layout_gravity="center"
+
                 />
 
         </android.support.v7.widget.Toolbar>
