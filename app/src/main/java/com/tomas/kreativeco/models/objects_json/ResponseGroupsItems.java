@@ -10,9 +10,21 @@ import java.util.ArrayList;
  */
 public class ResponseGroupsItems
 {
+    /*
+        Ustedes no mencionaron que datos mostrar.
+        Asi que deacuerdo estos objetos se puede ver los
+        datos que tome del JSON. CABE recalcar. que en la imagen
+        presentar el horario del restaurante. EL el cual en el JSON que me proporcionaron
+        no vienen ni un dato que diga el horario en el cual la empresa  este trabajando.
+
+
+     */
+    //Contact, locatio, hours, se toman como objectos ya que contienen pripuedades en el JSON
     private ResponseGroupContact responseGroupContact;
     private ResponseGroupLocation responseGroupLocation;
     private ResponseGroupHours responseGroupHours;
+    //Name es el unico que se toma como dato simple, este dato es propiedad de venue deacuerdo
+    //al JSON proporcionado.
     private String name;
 
     public ResponseGroupsItems(JSONObject jsonObjec) throws Exception
@@ -23,6 +35,9 @@ public class ResponseGroupsItems
         if(!jsonObjec.isNull("location"))this.responseGroupLocation = new ResponseGroupLocation(jsonObjec.getJSONObject("location"));
         if(!jsonObjec.isNull("hours"))this.responseGroupHours = new ResponseGroupHours(jsonObjec.getJSONObject("hours"));
     }
+    /*
+        Metodos Get y SET
+     */
 
     public ResponseGroupContact getResponseGroupContact()
     {

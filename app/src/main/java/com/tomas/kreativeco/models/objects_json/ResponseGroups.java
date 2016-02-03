@@ -10,7 +10,9 @@ import java.util.ArrayList;
  */
 public class ResponseGroups
 {
+    //Group contien un conjunto de datos llamdo ITEMS
     private ArrayList<ResponseGroupsItems> listItemGroup;
+    //Busqueda de elemetos de ITEMS se guardaran en una lista
     public ResponseGroups(JSONObject jsonObject)throws Exception
     {
         this.listItemGroup = new ArrayList<>();
@@ -21,6 +23,9 @@ public class ResponseGroups
         }
     }
 
+    /*
+            Metodos GET y SET
+     */
     public ArrayList<ResponseGroupsItems> getListItemGroup()
     {
         return listItemGroup;

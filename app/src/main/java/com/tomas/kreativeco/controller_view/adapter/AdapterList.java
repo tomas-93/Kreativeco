@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public class AdapterList extends  RecyclerView.Adapter <AdapterList.AdapterObject>
 {
+    //Lista el cual contiene la informacion del JSON
     ArrayList<Info> listInfo;
     public AdapterList(ArrayList<Info> listInfo)
     {
@@ -24,6 +25,7 @@ public class AdapterList extends  RecyclerView.Adapter <AdapterList.AdapterObjec
     @Override
     public AdapterList.AdapterObject onCreateViewHolder(ViewGroup parent, int viewType)
     {
+        //Se genera la instancia View para el Adaptador
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_card_view, parent, false);
         return new AdapterObject(view);
     }
@@ -31,14 +33,17 @@ public class AdapterList extends  RecyclerView.Adapter <AdapterList.AdapterObjec
     @Override
     public void onBindViewHolder(AdapterList.AdapterObject holder, int position)
     {
+        //Cargar la informacion deacuerdo al objeto INFO
         this.loadInfo(holder, position);
     }
 
+    //Contador de elementos de la lista
     @Override
     public int getItemCount()
     {
         return this.listInfo.size();
     }
+    //Se les da el valor que contiene cada elemento de la lista.
     private void loadInfo(AdapterObject adapterObject, int position)
     {
         adapterObject.name.setText(this.listInfo.get(position).getName());
@@ -47,6 +52,7 @@ public class AdapterList extends  RecyclerView.Adapter <AdapterList.AdapterObjec
 
 
     }
+    //My adamtador para el recyclerview.
     public static class AdapterObject extends RecyclerView.ViewHolder
     {
         private TextView name, isOpen, location;

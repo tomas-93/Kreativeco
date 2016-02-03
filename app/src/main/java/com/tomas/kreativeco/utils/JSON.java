@@ -5,6 +5,13 @@ package com.tomas.kreativeco.utils;
  */
 public class JSON
 {
+        /*
+                 Estructuras de datos, que fue proporcionada por ustedes.
+                 No se relizo consultas HTTP ya que en el correo me enviaron menciono esto.
+                  "No debes hacer nada de 'backend' Solo usar los json que vienen adjuntos en el zip para
+                consumirlos de manera local. Lo que buscamos es evaluar como manipulas dichos objetos"
+
+         */
     public static String getJSON_hotel()
     {
         return "{\n" +

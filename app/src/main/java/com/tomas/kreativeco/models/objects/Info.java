@@ -5,6 +5,9 @@ package com.tomas.kreativeco.models.objects;
  */
 public class Info
 {
+    /*
+            Informacion para mostrar en la lista.
+     */
     private String name;
     private String isOpen;
     private String location;

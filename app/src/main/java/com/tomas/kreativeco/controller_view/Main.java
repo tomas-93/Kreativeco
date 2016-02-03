@@ -15,7 +15,6 @@ import com.tomas.kreativeco.R;
 import com.tomas.kreativeco.controller_view.adapter.AdapterList;
 import com.tomas.kreativeco.models.objects.Info;
 import com.tomas.kreativeco.models.objects_json.Response;
-import com.tomas.kreativeco.models.objects_json.ResponseGroupHours;
 import com.tomas.kreativeco.models.objects_json.ResponseGroups;
 import com.tomas.kreativeco.models.objects_json.ResponseGroupsItems;
 import com.tomas.kreativeco.utils.JSON;
@@ -23,7 +22,13 @@ import com.tomas.kreativeco.utils.JSON;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.jar.JarEntry;
+/*
+    Prueba.
+    Gracias por la oportunidad :D
+
+    En el caso de que lo llegue a pasar.
+    Espero de su parte una observacion se lo agradesco mucho.
+ */
 
 public class Main extends AppCompatActivity implements OnClickListener
 {
@@ -47,32 +52,42 @@ public class Main extends AppCompatActivity implements OnClickListener
     }
 
     /*
-        evento click
+        Evento click
      */
     @Override
     public void onClick(View view)
     {
-        //Normmalizar botones
+        //Normmalizar botones, se cambian los icono originales de cada boton
         this.normalizeButton();
         /*
             Condiciones para cambiar el icono.
          */
         if (view.getId() == this.restaurants.getId())
         {
+            //Cambia la imagen del boton
             this.restaurants.setBackgroundResource(R.drawable.icono_makeaplan_over);
+            //Cambia el titulo
             this.title.setText(R.string.title_content_1);
+            //Busca la informacion del JSON
             this.selectJSON(REST);
+            //Genera de nuevo la lista.
             this.instaceList();
         } else if (view.getId() == this.afters.getId())
         {
+            //Se cambia el icono
             this.afters.setBackgroundResource(R.drawable.iconoafter_makeaplan_over);
+            //Se cambia el titulo.
             this.title.setText(R.string.title_content_3);
 
         }else if(view.getId() == this.bars.getId())
         {
+            //Se cambia el icono del boton
             this.bars.setBackgroundResource(R.drawable.iconobar_makeaplan_over);
+            //Se cambia el titlo
             this.title.setText(R.string.title_content_2);
+            //Se busca el contenido de JSON bars
             this.selectJSON(BARS);
+            //Se genera la nueva lista
             this.instaceList();
         }else if(view.getId() == this.fine.getId())
         {
@@ -86,12 +101,14 @@ public class Main extends AppCompatActivity implements OnClickListener
 
         }else if(view.getId() == this.hotels.getId())
         {
+            //Se cambia el icono del boton
             this.hotels.setBackgroundResource(R.drawable.iconohotel_makeaplanover);
+            //Se cambia el titlo
             this.title.setText(R.string.title_content_4);
+            //Se busca el contenido
             this.selectJSON(HOTELS);
+            //Se genera la nueva lista
             this.instaceList();
-
-
         }
 
 
@@ -128,7 +145,7 @@ public class Main extends AppCompatActivity implements OnClickListener
 
 
     }
-    //Normalizar componentes.
+    //Normalizar componentes con el anterior icono. esto ocurre cuando se preciona un nuevo boton.
     private void normalizeButton()
     {
         this.restaurants.setBackgroundResource(R.drawable.icono_restaurantesmakeaplan);
@@ -140,6 +157,12 @@ public class Main extends AppCompatActivity implements OnClickListener
 
     }
     //Seleccionar JSON
+    /*
+        Se buscara el JSON deacuerdo a la constante que se le pase.
+
+        El metodo GETJSON se encuentra ubicado en paquete UTILS.
+
+     */
     private void selectJSON(int i)
     {
         try
@@ -160,6 +183,34 @@ public class Main extends AppCompatActivity implements OnClickListener
                 JSONObject jsonOb = new JSONObject(JSON.getJSON_hotel());
                 reponse = new Response(jsonOb.getJSONObject("response"));
             }
+            /*
+                La forma en la que se recorre el JSON es de la siguiente manera.
+
+                En el JSON cuentan con Response, el cual lo interpreto como un objecto.
+                todos los datos individuales o mejor dicho que no son un conjunto de datos
+                como por ejememplo Phone o Twitter, los interpreto como una propiedad de un
+                objecto.
+
+                Todos aquellos datos que tengan un conjunto de datos los interpreto como objectos
+                como por ejemplo Response -> Group-> ITEMS.
+                Items a su vez puede tener propiedades que se puedan interpretar como Objetos o
+                como datos simples.
+
+                El nombre del objeto va deacuerdo a la profundidad en la que se encuentra.
+                Que quiere decir esto? en el JSON Response tiene un propiedad llamada Group que tiene
+                un conjuto de informacion. entoces el objeto se llamara ResponseGroup ya que group
+                es hijo de response.
+
+                Cuando se pasa JSONOBJECT al Response en el contructor empieza hacer un tipo
+                mapeo de cada objecto que se encuentre en el JSON, cabe recalcar que el recorrido
+                no es dinamico, esta definido por la extructura de los archivos que se proporciono.
+
+                Solo mostre una cantidad de datos limitada.
+
+                Para obtener los valores es necesario realizar un ciclo
+                por cada conjunto de objecto.
+
+             */
 
             for(ResponseGroups var: reponse.getListGroup())
             {
@@ -169,11 +220,10 @@ public class Main extends AppCompatActivity implements OnClickListener
                         this.listInfo.add(new Info(item.getName(), "Horario Desconocido", item.getResponseGroupLocation().getLocation()));
                     else if(item.getResponseGroupHours() != null && item.getResponseGroupLocation() == null)
                         this.listInfo.add(new Info(item.getName(), item.getResponseGroupHours().getStatus(), "Ubicacion Desconocida"));
-                    else if(item.getResponseGroupHours() == null && item.getResponseGroupLocation() == null)
-                        this.listInfo.add(new Info(item.getName(), "Horario Desconocido", "Ubicacion Desconocida"));
-                    else
+                    else if(item.getResponseGroupHours() != null && item.getResponseGroupLocation() != null)
                         this.listInfo.add(new Info(item.getName(),item.getResponseGroupHours().getStatus(),item.getResponseGroupLocation().getLocation()));
-
+                    else
+                        this.listInfo.add(new Info(item.getName(), "Horario Desconocido", "Ubicacion Desconocida"));
                 }
             }
 
@@ -182,7 +232,7 @@ public class Main extends AppCompatActivity implements OnClickListener
             e.printStackTrace();
         }
     }
-    //Recicle view y myadapter
+    //Se genera la vista recyclerview
     private void instaceList()
     {
         this.myAdapter = new AdapterList(this.listInfo);
